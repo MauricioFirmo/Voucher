@@ -1,0 +1,54 @@
+.flight-info {
+}
+
+.flight-number {
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    /* Firefox */
+    input[type="number"] {
+        -moz-appearance: textfield;
+    }
+}
+
+.table-container {
+    position: relative;
+}
+
+.loading-shade {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.15);
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mat-table {
+    overflow: auto;
+    max-height: 500px;
+}
+
+.authorization-select {
+    border: 1px solid var(--color-default);
+    padding: 5px;
+    margin-right: 10px;
+    border-radius: 5px;
+}
+
+
+.mat-column-codeShare {
+    flex: 0 0 40% !important;
+    width: 40% !important;
+}
+
+mat-divider {
+    margin-top: 10px;
+}

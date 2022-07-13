@@ -1,0 +1,35 @@
+<mat-sidenav-container>
+  <mat-sidenav #sidenav mode="side" opened="true" [class.mat-elevation-z4]="true"
+    *ngIf="loginService.isAuthenticated()">
+    <mat-nav-list dense>
+
+      <ng-container *ngFor="let menuExpansibleItem of menu.expansibleItems;">
+        <mat-expansion-panel [class.mat-elevation-z0]="true" dense [expanded]="true" *ngIf="menuExpansibleItem.canShow">
+          <mat-expansion-panel-header>
+            <mat-icon>{{menuExpansibleItem.icon}}</mat-icon>{{menuExpansibleItem.title}}
+          </mat-expansion-panel-header>
+          <mat-nav-list dense>
+            <ng-container *ngFor="let menuItem of menuExpansibleItem.items">
+              <a mat-list-item routerLink="{{menuItem.route}}" routerLinkActive="is-active" *ngIf="menuItem.canShow">
+                <mat-icon>{{menuItem.icon}}</mat-icon>{{menuItem.label}}
+              </a>
+            </ng-container>
+          </mat-nav-list>
+        </mat-expansion-panel>
+      </ng-container>
+      <ng-container *ngFor="let menuItem of menu.items">
+        <mat-list-item routerLink="{{menuItem.route}}" routerLinkActive="is-active" *ngIf="menuItem.canShow">
+          <mat-icon>{{menuItem.icon}}</mat-icon>{{menuItem.label}}
+        </mat-list-item>
+      </ng-container>
+      <mat-list-item>
+        <a href="https://g3testagent.tvlinc.com" target="_blank" class="mat-list-item-content adjExternalLink">
+          <mat-icon>explore</mat-icon> Travelliance
+        </a>
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content style="padding-left: 2rem;">
+    <ng-content></ng-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>

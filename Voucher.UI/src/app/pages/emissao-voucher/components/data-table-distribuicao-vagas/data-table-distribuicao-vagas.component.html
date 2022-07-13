@@ -1,0 +1,47 @@
+<mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+  <ng-container *ngFor="let column of columns; let i = index" matColumnDef="{{ column.field }}">
+    <mat-header-cell *matHeaderCellDef style="display: flex; flex-direction: row; justify-content: space-between;">
+      <div>
+        {{ tableName }}
+      </div>
+      <div class="qtd-quartos" *ngIf="!isPassengersTable">
+        <input matInput type="number" [(ngModel)]="qtdQuartos" min="0" (change)="atualizaQtdQuartos()">
+      </div>
+    </mat-header-cell>
+    <mat-cell *matCellDef="let row" class="ml-20" [class.ml-60]="groupByColumns.length > 1">
+      {{ tableName === 'Quartos Compartilhados' ? row['nome'] : row[column.field] }}
+
+      <mat-icon (click)="onAddSinglePassengerAction.emit(row)" class="add-single-button"
+        matTooltip="Adicionar Quarto Single" matTooltipPosition="above" *ngIf="isPassengersTable">person_add</mat-icon>
+      <mat-icon class="add-compartilhado-button" matTooltip="Adicionar Quarto Compartilhado" matTooltipPosition="above" *ngIf="isPassengersTable" [matMenuTriggerFor]="menu">group_add
+      </mat-icon>
+      <mat-icon (click)="onRemovePassengerAction.emit(row)" class="remove-passenger-button"
+        matTooltip="Remover Passageiro" matTooltipPosition="above" *ngIf="!isPassengersTable">person_remove</mat-icon>
+
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item *ngFor="let numero of hotel?.qtdQuartosCompartilhadosArray" (click)="addPassenger(row, 'compartilhado', numero)">Quarto {{numero}}</button>
+      </mat-menu>
+
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+  <!-- Group header -->
+  <ng-container matColumnDef="groupHeader">
+    <mat-cell colspan="999" *matCellDef="let group" [class.ml-30]="group.level > 1">
+      <mat-icon *ngIf="group.expanded">expand_less</mat-icon>
+      <mat-icon *ngIf="!group.expanded">expand_more</mat-icon>
+      <strong>{{groupByColumns[group.level-1] | uppercase }} <span
+          style="color: var(--color-default)">{{group[groupByColumns[group.level-1]]}}
+        </span> ({{group.totalCounts}})</strong>
+
+    </mat-cell>
+  </ng-container>
+
+  <mat-row *matRowDef="let row; columns: ['groupHeader']; when: isGroup" (click)="groupHeaderClick(row)"> </mat-row>
+
+</mat-table>
+<div class="mat-elevation-z8 no-data-message" *ngIf="_alldata.length === 0">{{noDataMsg}}</div>

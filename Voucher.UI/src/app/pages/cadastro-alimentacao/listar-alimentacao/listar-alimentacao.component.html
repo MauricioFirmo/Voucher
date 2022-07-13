@@ -1,0 +1,11 @@
+<div fxLayout="row" fxLayoutAlign="end end" class="mt-2">
+  <div fxFlex="100" fxFlex.gt-sm="20" fxLayoutAlign="end end">
+    <button mat-raised-button color="primary" routerLink="/cadastro-alimentacao/novo">Cadastrar Fornecedor</button>
+  </div>
+</div>
+
+<app-data-table-alimentacao [columnsToDisplay]="headerTabelaFornecedor" [(data)]="fornecedoresData"
+  [isLoadingResults]="isLoadingResults" [showViewButton]="true" [showEditButton]="true" [showDeleteButton]="true"
+  (onDeleteAction)="excluir($event)" (onEditAction)="editar($event)" (onSelectRowAction)="abrir($event)"
+  (onViewAction)="abrir($event)">
+</app-data-table-alimentacao>

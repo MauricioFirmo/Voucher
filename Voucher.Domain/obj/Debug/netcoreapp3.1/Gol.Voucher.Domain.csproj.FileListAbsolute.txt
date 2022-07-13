@@ -1,0 +1,9 @@
+C:\Users\MauricioFirmodaSilva\source\repos\voucher\src\Gol.Voucher.Domain\bin\Debug\netcoreapp3.1\Gol.Voucher.Domain.deps.json
+C:\Users\MauricioFirmodaSilva\source\repos\voucher\src\Gol.Voucher.Domain\bin\Debug\netcoreapp3.1\Gol.Voucher.Domain.dll
+C:\Users\MauricioFirmodaSilva\source\repos\voucher\src\Gol.Voucher.Domain\bin\Debug\netcoreapp3.1\Gol.Voucher.Domain.pdb
+C:\Users\MauricioFirmodaSilva\source\repos\voucher\src\Gol.Voucher.Domain\obj\Debug\netcoreapp3.1\Gol.Voucher.Domain.csprojAssemblyReference.cache
+C:\Users\MauricioFirmodaSilva\source\repos\voucher\src\Gol.Voucher.Domain\obj\Debug\netcoreapp3.1\Gol.Voucher.Domain.AssemblyInfoInputs.cache
+C:\Users\MauricioFirmodaSilva\source\repos\voucher\src\Gol.Voucher.Domain\obj\Debug\netcoreapp3.1\Gol.Voucher.Domain.AssemblyInfo.cs
+C:\Users\MauricioFirmodaSilva\source\repos\voucher\src\Gol.Voucher.Domain\obj\Debug\netcoreapp3.1\Gol.Voucher.Domain.csproj.CoreCompileInputs.cache
+C:\Users\MauricioFirmodaSilva\source\repos\voucher\src\Gol.Voucher.Domain\obj\Debug\netcoreapp3.1\Gol.Voucher.Domain.dll
+C:\Users\MauricioFirmodaSilva\source\repos\voucher\src\Gol.Voucher.Domain\obj\Debug\netcoreapp3.1\Gol.Voucher.Domain.pdb

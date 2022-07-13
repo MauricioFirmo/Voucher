@@ -1,0 +1,19 @@
+<div class="close-dialog">
+  <button mat-icon-button (click)="onNoClick()" class="btn-fechar">
+    <mat-icon color="primary">close</mat-icon>
+  </button>
+</div>
+<div class="container" style="padding: 5px;">
+
+  <h1 mat-dialog-title color="primary">{{data.titulo}}</h1>
+  <div mat-dialog-content>
+    <p>{{ data.pergunta }}</p>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button mat-raised-button (click)="onNoClick()" cdkFocusInitial color="primary">{{data.noString ?
+      data.noString :
+      'Não'}}</button>
+    <button mat-button mat-raised-button (click)="onClick()" color="secondary">{{data.yesString ? data.yesString :
+      'Sim'}}</button>
+  </div>
+</div>

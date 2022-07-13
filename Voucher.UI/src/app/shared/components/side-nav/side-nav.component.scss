@@ -1,0 +1,47 @@
+mat-sidenav-content {
+    margin: 0;
+    height: -moz-calc(100% - (20px + 30px));
+    height: -webkit-calc(100% - (20px + 30px));
+    height: calc(100% - (20px + 30px));
+    height: 90vh;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-top: 20px;
+}
+
+mat-sidenav-container {
+    mat-icon {
+        color: var(--color-default);
+        margin-right: 0.25rem;
+    }
+    .mat-list-base[dense] .mat-list-item {
+        font-size: 15px;
+        font-weight: 400;
+    }
+}
+
+.is-active {
+    color: white !important;
+    background-color: var(--color-default);
+    border-radius: 0.15rem;
+    mat-icon {
+        color: white;
+    }
+    &:focus,
+    .mat-list-text {
+        color: white !important;
+        border-radius: 0.15rem;
+        mat-icon {
+            color: white;
+        }
+        background: var(--color-default) !important;
+    }
+}
+
+.mat-expansion-panel-header {
+    padding: 0 15px;
+}
+
+.adjExternalLink{
+    margin-left: -16px;
+}

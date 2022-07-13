@@ -1,0 +1,26 @@
+<mat-toolbar color="primary">
+  <button mat-icon-button (click)="toggleSideNav()" *ngIf="loginService.isAuthenticated()">
+    <mat-icon *ngIf="openSideNav">menu</mat-icon>
+    <mat-icon *ngIf="!openSideNav">menu_open</mat-icon>
+  </button>
+  <img src="../assets/images/app-logo-negative.svg" />
+  <span style="flex: 1 1 auto;"></span>
+  <div>
+    <button mat-icon-button matTooltip="Minha Conta" [matMenuTriggerFor]="accountMenu" *ngIf="loginService.isAuthenticated()">
+      <mat-icon>account_circle</mat-icon>
+    </button>
+    <mat-menu #accountMenu [overlapTrigger]="false" yPosition="below">
+      <button mat-menu-item routerLink="#">
+        <mat-icon>person</mat-icon><span>Minha Conta</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>help</mat-icon><span>Ajuda</span>
+      </button>
+      <mat-divider></mat-divider>
+      <button mat-menu-item (click)="logout()">
+        <mat-icon>exit_to_app</mat-icon>Sair
+      </button>
+    </mat-menu>
+  </div>
+</mat-toolbar>
+<mat-progress-bar mode="query" color="accent" *ngIf="loadingService.isLoading"></mat-progress-bar>

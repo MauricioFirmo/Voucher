@@ -1,0 +1,11 @@
+<mat-form-field class="w-100" color="accent">
+  <mat-label>Base:</mat-label>
+  <input type="text" matInput #baseInput (keyup)="onKey($event.target.value)" [value]="value"
+    [matAutocomplete]="auto" [disabled]="isDisabled">
+  <mat-autocomplete #auto="matAutocomplete">
+    <mat-option *ngFor="let airport of airportsData" [value]="airport.iatacode" (click)="airportSelect(airport)">
+      {{airport.iatacode}} - {{airport.name}}
+    </mat-option>
+  </mat-autocomplete>
+  <span class="error-msg" *ngIf="showValidation">Base is required</span>
+</mat-form-field>

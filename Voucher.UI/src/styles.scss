@@ -1,0 +1,153 @@
+@import "~@angular/material/theming";
+
+@font-face {
+    font-family: GOLSansDisplayMedium;
+    src: url(/assets/fonts/GOLSansDisplay-Medium.woff);
+}
+@font-face {
+    font-family: GOLSansDisplayRegular;
+    src: url(/assets/fonts/GOLSansDisplay-Regular.woff);
+}
+@font-face {
+    font-family: GOLSansTextMedium;
+    src: url(/assets/fonts/GOLSansText-Medium.woff);
+}
+
+*,
+.mat-form-field,
+.mat-typography {
+    font-family: "GOLSansDisplayRegular", "Helvetica Neue", sans-serif;
+}
+body {
+    margin: 0;
+    overflow: hidden;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.ng-scope {
+    height: 100%;
+}
+
+.mat-flat-button.mat-primary span {
+    font-family: "GOLSansDisplayMedium", "Helvetica Neue", sans-serif;
+    text-transform: uppercase;
+}
+
+/*Login - Verificar!!!*/
+.mat-card-header-text {
+    width: 100%;
+}
+body {
+    height: 100%;
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+@include mat-core();
+
+$gol-orange: (
+    50: #ffebe0,
+    100: #ffcdb3,
+    200: #ffac80,
+    300: #ff8b4d,
+    400: #ff7226,
+    500: #ff5900,
+    600: #ff5900,
+    700: #ff4800,
+    800: #ff3e00,
+    900: #ff2e00,
+    A100: #ffffff,
+    A200: #fff4f2,
+    A400: #ffc7bf,
+    A700: #ffb1a6,
+    contrast: (
+        50: #000000,
+        100: #000000,
+        200: #000000,
+        300: #000000,
+        400: #000000,
+        500: #000000,
+        600: #ffffff,
+        700: #ffffff,
+        800: #ffffff,
+        900: #ffffff,
+        A100: #000000,
+        A200: #000000,
+        A400: #000000,
+        A700: #000000,
+    ),
+);
+
+$gol-app-primary: mat-palette($gol-orange, 600, 400, 700);
+$gol-app-accent: mat-palette($mat-yellow, 700, 500, 800);
+$gol-app-global: mat-palette($mat-red, 500, 100, 900);
+$gol-app-secondary: mat-palette($mat-deep-orange, 500, 100, 900);
+
+$gol-app-theme: mat-light-theme($gol-app-primary, $gol-app-secondary, $gol-app-global);
+
+@include angular-material-theme($gol-app-theme);
+
+.w-100 {
+    width: 100%;
+}
+
+.w-90 {
+    width: 90%;
+}
+
+.px {
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+.mt {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.mt-2 {
+    margin-top: 20px;
+}
+
+/*---- PADRÕES NOTIFICATION ------*/
+@mixin span-tostl {
+    font-weight: 600;
+    line-height: 19px;
+    color: #fff;
+}
+
+@mixin span-toastl-btn-close {
+    font-weight: bold;
+    line-height: 36px;
+    font-size: 20px;
+}
+
+.notification-success {
+    background: var(--color-default);
+    border-radius: 5px;
+    & span {
+        @include span-tostl;
+    }
+    & span.mat-button-wrapper {
+        @include span-toastl-btn-close;
+    }
+}
+
+.notification-error {
+    background: var(--color-danger);
+    border-radius: 5px;
+    & span {
+        @include span-tostl;
+    }
+    & span.mat-button-wrapper {
+        @include span-toastl-btn-close;
+    }
+}
+
+.no-data-message {
+    text-align: center;
+    padding: 10px;
+    background-color: white;
+}
+/*---- PADRÕES NOTIFICATION ------*/

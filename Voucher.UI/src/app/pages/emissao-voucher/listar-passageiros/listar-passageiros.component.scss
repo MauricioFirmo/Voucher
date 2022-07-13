@@ -1,0 +1,59 @@
+.mat-column-select {
+    flex: 0 0 5% !important;
+    width: 5% !important;
+}
+
+.mat-column-pnr,
+.mat-column-voo,
+.mat-column-data,
+.mat-column-codeShare {
+    flex: 0 0 10% !important;
+    width: 10% !important;
+}
+
+.mat-column-data {
+    flex: 0 0 20% !important;
+    width: 20% !important;
+}
+
+.table-container {
+    position: relative;
+}
+
+.loading-shade {
+    position: absolute;
+    top: 35;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.15);
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.status-emitido {
+    color: var(--color-default);
+}
+
+.status-cancelado {
+    color: var(--color-danger);
+}
+
+.mat-column-remarksSabre {
+    flex: 0 0 40% !important;
+}
+
+.mat-column-nome {
+    flex: 0 0 20% !important;
+}
+
+.mat-column-status {
+    flex: 0 0 10% !important;
+}
+
+.mat-column-codeShare {
+    flex: 0 0 40% !important;
+    width: 40% !important;
+}

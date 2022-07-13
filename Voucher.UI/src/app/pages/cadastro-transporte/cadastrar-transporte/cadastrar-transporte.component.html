@@ -1,0 +1,122 @@
+<form [formGroup]="formCadastroTransporte" (ngSubmit)="onSubmit()">
+  <div fxLayout="row wrap" fxLayoutAlign="start start">
+    <div fxFlex="100" fxFlex.gt-sm="auto" fxLayoutAlign="start">
+      <app-base-field (airportSelected)="f.airportIataCode.setValue($event.iatacode)" [value]="f.airportIataCode.value"
+        [isDisabled]="isVisualizar" [showValidation]="f.airportIataCode.errors?.required" class="w-100">
+      </app-base-field>
+    </div>
+
+    <div fxFlex="100" fxFlex.gt-sm="auto" fxLayoutAlign="start">
+      <mat-form-field class="w-100 px ">
+        <mat-label>Telefone:</mat-label>
+        <input matInput type="text" formControlName="phone" [showMaskTyped]="true" mask="(00) 0000-0000">
+        <mat-error *ngIf="f.phone.errors?.required">Phone is required</mat-error>
+      </mat-form-field>
+    </div>
+
+    <!-- <div fxFlex="100" fxFlex.gt-sm="auto" fxLayoutAlign="start">
+      <mat-form-field class="w-100 px ">
+        <mat-label>Celular:</mat-label>
+        <input matInput type="text" formControlName="celular" [showMaskTyped]="true" mask="(00) 00000-0000">
+        <mat-error *ngIf="f.celular.errors?.required">Celular is required</mat-error>
+      </mat-form-field>
+    </div> -->
+
+    <div fxFlex="100" fxFlex.gt-sm="20" fxLayoutAlign="start">
+      <mat-form-field class="w-100 px ">
+        <mat-select placeholder="Ativo:" formControlName="active">
+          <mat-option [value]="true">Sim</mat-option>
+          <mat-option [value]="false">Não</mat-option>
+        </mat-select>
+        <mat-error *ngIf="f.active.errors?.required">Active is required</mat-error>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div fxLayout="row wrap" fxLayoutAlign="start start">
+
+    <div fxFlex="100" fxFlex.gt-sm="auto" fxLayoutAlign="start">
+      <mat-form-field class="w-100 px ">
+        <mat-label>Nome da Emp. Transporte:</mat-label>
+        <input matInput type="text" formControlName="name">
+        <mat-error *ngIf="f.name.errors?.required">Name is required</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div fxFlex="100" fxFlex.gt-sm="auto" fxLayoutAlign="start">
+      <mat-form-field class="w-100 px ">
+        <mat-label>Email:</mat-label>
+        <input matInput type="text" formControlName="email">
+        <mat-error *ngIf="f.email.errors?.required">Email is required</mat-error>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div fxLayout="row wrap" fxLayoutAlign="start start">
+    <div fxFlex="100" fxFlex.gt-sm="60" fxLayoutAlign="start">
+      <mat-form-field class="w-100 px ">
+        <mat-label>Endereço:</mat-label>
+        <input matInput type="text" formControlName="address">
+        <mat-error *ngIf="f.address.errors?.required">Address is required</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div fxFlex="100" fxFlex.gt-sm="20" fxLayoutAlign="start">
+      <mat-form-field class="w-100 px ">
+        <mat-select placeholder="Tipo:" formControlName="transportType">
+          <mat-option *ngFor="let transportType of transportTypes" [value]="transportType.id">
+            {{transportType.descricao}}</mat-option>
+        </mat-select>
+        <mat-error *ngIf="f.transportType.errors?.required">Transport Type is required</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div fxFlex="100" fxFlex.gt-sm="20" fxLayoutAlign="start" style="padding-left: 10px;">
+      <mat-form-field class="w-100 px">
+        <mat-label>Distância (km):</mat-label>
+        <input matInput type="text" formControlName="distance">
+        <mat-error *ngIf="f.distance.errors?.required">Distance is required</mat-error>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div fxLayout="row wrap" fxLayoutAlign="space-between start">
+    <div fxFlex="100" fxFlex.gt-sm="20" fxLayoutAlign="start">
+      <mat-form-field class="w-100 px ">
+        <mat-label>Valor trecho:</mat-label>
+        <input matInput type="text" formControlName="price" prefix="R$ " thousandSeparator="." mask="separator.2">
+        <mat-error *ngIf="f.price.errors?.required">Price is required</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div fxFlex="100" fxFlex.gt-sm="20" fxLayoutAlign="start">
+      <mat-form-field class="w-100 px ">
+        <mat-label>Prioridade:</mat-label>
+        <input matInput type="number" min="1" max="100" formControlName="priority">
+        <mat-error *ngIf="f.priority.errors?.required">Prioridade is required</mat-error>
+        <mat-error *ngIf="f.priority.errors?.min">Prioridade Mínimo de {{f.priority.errors?.min.min}}.</mat-error>
+        <mat-error *ngIf="f.priority.errors?.max">Prioridade Máxima de {{f.priority.errors?.max.max}}.</mat-error>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div fxLayout="row wrap" fxLayoutAlign="start start">
+    <div fxFlex="100" fxFlex.gt-sm="100" fxLayoutAlign="start">
+      <mat-form-field class="w-100 px ">
+        <mat-label>Texto Padrão:</mat-label>
+        <textarea matInput rows=5 formControlName="freeText" maxRows=5
+          placeholder="Campo para inserção de texto com orientações para utilização do voucher."></textarea>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div fxLayout="row" fxLayoutAlign="center center" class="mt">
+    <div fxFlex="100" fxFlex.gt-sm="50" fxLayoutAlign="center center">
+      <button mat-raised-button color="secondary" (click)="location.back(); $event.preventDefault();">Voltar</button>
+    </div>
+
+    <div fxFlex="100" fxFlex.gt-sm="50" fxLayoutAlign="center center" *ngIf="!isVisualizar">
+      <button mat-raised-button color="primary">Salvar</button>
+    </div>
+  </div>
+</form>

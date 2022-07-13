@@ -1,0 +1,11 @@
+<div fxLayout="row" fxLayoutAlign="end end" class="mt-2">
+  <div fxFlex="100" fxFlex.gt-sm="20" fxLayoutAlign="end end">
+    <button mat-raised-button color="primary" routerLink="/cadastro-transporte/novo">Cadastrar Transporte</button>
+  </div>
+</div>
+
+<app-data-table-transporte [columnsToDisplay]="headerTabelaTransporte" [(data)]="transporteData"
+  [isLoadingResults]="isLoadingResults" [showViewButton]="true" [showEditButton]="true" [showDeleteButton]="true"
+  (onDeleteAction)="excluir($event)" (onEditAction)="editar($event)" (onSelectRowAction)="abrir($event)"
+  (onViewAction)="abrir($event)">
+</app-data-table-transporte>

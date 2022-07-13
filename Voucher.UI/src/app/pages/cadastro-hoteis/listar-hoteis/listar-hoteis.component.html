@@ -1,0 +1,11 @@
+<div fxLayout="row" fxLayoutAlign="end end" class="mt-2">
+  <div fxFlex="100" fxFlex.gt-sm="20" fxLayoutAlign="end end">
+    <button mat-raised-button color="primary" routerLink="/cadastro-hoteis/novo">Cadastrar Hotel</button>
+  </div>
+</div>
+
+<app-data-table-hoteis [columnsToDisplay]="headerTabelaHoteis" [(data)]="hoteisData"
+  [isLoadingResults]="isLoadingResults" [showViewButton]="true" [showEditButton]="true" [showDeleteButton]="true"
+  [showUpdateButton]="true" (onDeleteAction)="excluir($event)" (onEditAction)="editar($event)"
+  (onSelectRowAction)="abrir($event)" (onUpdateAction)="atualizarVagas($event)" (onViewAction)="abrir($event)">
+</app-data-table-hoteis>

@@ -1,0 +1,30 @@
+mat-table {
+    width: 100%;
+}
+
+.add-single-button {
+    margin-left: 20px;
+    cursor: pointer;
+    color: #026402;
+}
+
+.add-compartilhado-button {
+    margin-left: 10px;
+    cursor: pointer;
+    color: #923503;
+}
+
+.remove-passenger-button {
+    margin-left: 10px;
+    cursor: pointer;
+    color: #910303;
+}
+
+.mat-dialog-content {
+    padding: 0 24px 24px !important;
+}
+
+.qtd-quartos {
+    align-content: flex-end;
+    width: 2rem;
+}

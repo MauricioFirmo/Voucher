@@ -1,0 +1,70 @@
+.mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  table {
+    width: 100%;
+  }
+  .table-container {
+    position: relative;
+  }
+  
+  .loading-shade {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.15);
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  table.mat-table {
+    -webkit-font-smoothing: antialiased !important;
+    width: 100%;
+    border: 0;
+    border-spacing: 0px;
+    box-shadow: none;
+  
+    tr.element-row:not(.expanded-row):hover {
+      background: #efefef;
+    }
+  
+    tr.element-row {
+      cursor: pointer;
+      border-bottom: 0px;
+    }
+  
+    tr.expanded-row {
+      background-color: #efefef;
+      border-bottom: 0px;
+    }
+  
+    tr.detail-row {
+      height: 0;
+    }
+  
+    th.mat-header-cell {
+      text-transform: capitalize;
+      border-bottom: 1px solid #eee;
+      border-right: 1px solid #eee;
+      background-color: #efefef !important;
+    }
+  
+    td.mat-cell {
+      border-bottom: 0px;
+    }
+  
+    td.mat-column-expandedDetail {
+      border-bottom: 1px solid #cccccc;
+    }
+  }
+  
+  .text-center {
+    text-align: center;
+    padding: 10px;
+  }
+  

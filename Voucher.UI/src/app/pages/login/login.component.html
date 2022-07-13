@@ -1,0 +1,24 @@
+<form [formGroup]="formLogin" (ngSubmit)="onSubmit()">
+  <mat-card class="box-login">
+    <mat-card-header>
+      <mat-card-title>Entrar</mat-card-title>
+    </mat-card-header>
+    <mat-divider></mat-divider>
+    <mat-card-content>
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Usuário:</mat-label>
+        <input matInput type="text" formControlName="userName">
+        <mat-error *ngIf="f.userName.errors?.required">Username is required</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="full-width" style="margin-top: 10px;">
+        <mat-label>Senha:</mat-label>
+        <input matInput type="password" formControlName="password">
+        <mat-error *ngIf="f.password.errors?.required">Password is required</mat-error>
+      </mat-form-field>
+      <mat-divider style="margin-top: 10px;"></mat-divider>
+      <mat-card-actions align="center" style="margin-top: 10px;">        
+        <button mat-flat-button color="primary" [disabled]="loadingService.isLoading">Continuar</button>
+      </mat-card-actions>
+    </mat-card-content>
+  </mat-card>
+</form>

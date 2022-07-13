@@ -1,0 +1,80 @@
+<h2 mat-dialog-title>Seleciona Tipo de Voucher a Emitir</h2>
+
+<mat-dialog-content class="mat-typography">
+  <section class="section">
+    <span>
+      <ul>
+        <li *ngFor="let tipo of tipoVoucher.subTipos">
+          <mat-checkbox [(ngModel)]="tipo.selected" [color]="tipo.color" (ngModelChange)="clearFields(tipo);"
+            [disabled]="tipo.disabled || !tipo.permission">
+            {{tipo.name}}
+          </mat-checkbox>
+
+          <!-- <mat-form-field *ngIf="tipo.selected && tipo.name !== 'Accommodation'" class="w-90" style="margin-left: 10px;">
+            <mat-label>Fornecedor:</mat-label>
+            <input matInput type="text" placeholder="Digite o fornecedor que deseja encontrar."
+              [(ngModel)]="tipo.fornecedor">
+          </mat-form-field> -->
+
+          <mat-form-field color="accent" *ngIf="tipo.selected && tipo.name === 'Food'" class="w-90"
+            style="margin-left: 10px;">
+            <input type="text" matInput placeholder="Digite o Fornecedor:"
+              (keyup)="onKey($event.target.value,tipo, 'food')" [(ngModel)]="tipo.fornecedor" [matAutocomplete]="auto">
+            <mat-autocomplete #auto="matAutocomplete">
+              <mat-option *ngFor="let fornecedor of fornecedoresFood" (click)="fornecedorChange(fornecedor, tipo)"
+                [value]="fornecedor.nome">
+                {{fornecedor.name}}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+
+          <mat-form-field *ngIf="tipo.selected && tipo.name === 'Snacks'" class="w-90" style="margin-left: 10px;">
+            <input type="text" matInput placeholder="Digite o Fornecedor:"
+              (keyup)="onKey($event.target.value,tipo, 'snack')" [(ngModel)]="tipo.fornecedor" [matAutocomplete]="auto">
+            <mat-autocomplete #auto="matAutocomplete">
+              <mat-option *ngFor="let fornecedor of fornecedoresSnacks" (click)="fornecedorChange(fornecedor, tipo)"
+                [value]="fornecedor.nome">
+                {{fornecedor.name}}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+
+          <mat-form-field *ngIf="tipo.selected && tipo.name === 'Transport'" class="w-90" style="margin-left: 10px;">
+            <input type="text" matInput placeholder="Digite o Fornecedor:"
+              (keyup)="onKey($event.target.value, tipo, 'transport')" [(ngModel)]="tipo.fornecedor"
+              [matAutocomplete]="auto">
+            <mat-autocomplete #auto="matAutocomplete">
+              <mat-option *ngFor="let fornecedor of fornecedoresTransport" (click)="fornecedorChange(fornecedor, tipo)"
+                [value]="fornecedor.nome">
+                {{fornecedor.name}}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+
+          <mat-form-field *ngIf="tipo.fornecedor && tipo.name !== 'Accommodation'" class="w-90"
+            style="margin-left: 10px;">
+            <mat-label>Texto Padrão:</mat-label>
+            <input matInput type="text" [(ngModel)]="tipo.textoPadrao">
+          </mat-form-field>
+          <mat-form-field *ngIf="tipo.selected && tipo.name === 'Accommodation'"
+            style="margin-left: 10px; width: 5rem;">
+            <mat-label>Diárias:</mat-label>
+            <input matInput type="number" [(ngModel)]="tipo.diarias" min="1">
+          </mat-form-field>
+          <button mat-stroked-button color="primary" *ngIf="tipo.selected && tipo.name === 'Accommodation'"
+            (click)="distribuirVagasHotel()" style="margin-left: 10px;">Distribuir vagas de hotel</button>
+        </li>
+      </ul>
+    </span>
+  </section>
+
+  <mat-form-field class="w-90" style="margin-left: 10px;">
+    <mat-label>Descrição Motivo da Emissão:</mat-label>
+    <input matInput type="text" [(ngModel)]="motivoEmissao">
+  </mat-form-field>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancelar</button>
+  <button mat-raised-button color="primary" (click)="emitirVouchers()">Emitir Vouchers</button>
+</mat-dialog-actions>

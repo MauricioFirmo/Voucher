@@ -1,0 +1,16 @@
+C:\Users\MauricioFirmodaSilva\source\repos\voucher\src\Gol.Voucher.Application\bin\Debug\netcoreapp3.1\Gol.Voucher.Application.deps.json
+C:\Users\MauricioFirmodaSilva\source\repos\voucher\src\Gol.Voucher.Application\bin\Debug\netcoreapp3.1\Gol.Voucher.Application.dll
+C:\Users\MauricioFirmodaSilva\source\repos\voucher\src\Gol.Voucher.Application\bin\Debug\netcoreapp3.1\Gol.Voucher.Application.pdb
+C:\Users\MauricioFirmodaSilva\source\repos\voucher\src\Gol.Voucher.Application\bin\Debug\netcoreapp3.1\Gol.Voucher.dll
+C:\Users\MauricioFirmodaSilva\source\repos\voucher\src\Gol.Voucher.Application\bin\Debug\netcoreapp3.1\Gol.Voucher.Domain.dll
+C:\Users\MauricioFirmodaSilva\source\repos\voucher\src\Gol.Voucher.Application\bin\Debug\netcoreapp3.1\Gol.Voucher.Repository.dll
+C:\Users\MauricioFirmodaSilva\source\repos\voucher\src\Gol.Voucher.Application\bin\Debug\netcoreapp3.1\Gol.Voucher.Domain.pdb
+C:\Users\MauricioFirmodaSilva\source\repos\voucher\src\Gol.Voucher.Application\bin\Debug\netcoreapp3.1\Gol.Voucher.Repository.pdb
+C:\Users\MauricioFirmodaSilva\source\repos\voucher\src\Gol.Voucher.Application\bin\Debug\netcoreapp3.1\Gol.Voucher.pdb
+C:\Users\MauricioFirmodaSilva\source\repos\voucher\src\Gol.Voucher.Application\obj\Debug\netcoreapp3.1\Gol.Voucher.Application.csprojAssemblyReference.cache
+C:\Users\MauricioFirmodaSilva\source\repos\voucher\src\Gol.Voucher.Application\obj\Debug\netcoreapp3.1\Gol.Voucher.Application.AssemblyInfoInputs.cache
+C:\Users\MauricioFirmodaSilva\source\repos\voucher\src\Gol.Voucher.Application\obj\Debug\netcoreapp3.1\Gol.Voucher.Application.AssemblyInfo.cs
+C:\Users\MauricioFirmodaSilva\source\repos\voucher\src\Gol.Voucher.Application\obj\Debug\netcoreapp3.1\Gol.Voucher.Application.csproj.CoreCompileInputs.cache
+C:\Users\MauricioFirmodaSilva\source\repos\voucher\src\Gol.Voucher.Application\obj\Debug\netcoreapp3.1\Gol.Voucher.Application.csproj.CopyComplete
+C:\Users\MauricioFirmodaSilva\source\repos\voucher\src\Gol.Voucher.Application\obj\Debug\netcoreapp3.1\Gol.Voucher.Application.dll
+C:\Users\MauricioFirmodaSilva\source\repos\voucher\src\Gol.Voucher.Application\obj\Debug\netcoreapp3.1\Gol.Voucher.Application.pdb

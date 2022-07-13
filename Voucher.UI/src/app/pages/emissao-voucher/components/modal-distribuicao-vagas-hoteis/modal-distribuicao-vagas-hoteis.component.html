@@ -1,0 +1,67 @@
+<h2 mat-dialog-title>Distribuição Vagas Hotel - (Pax Restantes {{passageiros.length}})</h2>
+<mat-dialog-content>
+  <mat-accordion #hoteis>
+    <mat-expansion-panel *ngFor="let hotel of vagas; let i = index">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <mat-icon style="margin-right: 5px;" color="primary">hotel</mat-icon>{{hotel.nome}}
+        </mat-panel-title>
+        <mat-panel-description>
+          <!-- Quartos Disponiveis: {{hotel.vagasDisponiveis}} - Restantes: {{(hotel.qtdQuartosSingle + hotel.qtdQuartosCompartilhados) - (countVagasRestantes(hotel) + hotel.passageirosQuartosSingle.length)}} -->
+          Quartos Disponiveis: {{hotel.vagasDisponiveis}} - Restantes: {{hotel.vagasDisponiveis - (countVagasRestantes(hotel) + hotel.passageirosQuartosSingle.length)}} 
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <div xLayout="row wrap" fxLayoutAlign="space-around start">
+        <div fxFlex="32%">
+          <app-data-table-distribuicao-vagas #dataTablePassageiros
+          [_alldata]="passageiros"
+          [columns]="columnsPassageiros"
+          [displayedColumns]="displayedColumnsPassageiros"
+          [groupByColumns]="groupByColumnsPassageiros"
+          tableName="Passageiros"
+          noDataMsg="Todos os Passageiros foram Vinculados"
+          [hotel]="hotel"          
+          [isPassengersTable]="true"
+          (onAddSinglePassengerAction)="addPassengerSingle($event, hotel)"
+          (onAddCompartilhadoPassengerAction)="addPassengerCompartilhado($event, hotel)"
+          ></app-data-table-distribuicao-vagas>
+        </div>
+        <div fxFlex="32%">
+          <app-data-table-distribuicao-vagas #dataTableCompartilhados
+          [_alldata]="hotel.passageirosQuartosCompartilhados"
+          [columns]="columnsCompartilhado"
+          [displayedColumns]="displayedColumnsCompartilhado"
+          [groupByColumns]="groupByColumnsCompartilhado"
+          tableName="Quartos Compartilhados"
+          [hotel]="hotel" 
+          [qtdQuartos]="hotel.qtdQuartosCompartilhados"
+          (onRemovePassengerAction)="removePassenger($event, hotel, 'compartilhado')"
+          (onUpdateQtdQuartos)="updateQtdQuartos($event, hotel)"
+          ></app-data-table-distribuicao-vagas>
+        </div>
+
+        <div fxFlex="32%">
+          <app-data-table-distribuicao-vagas
+          [_alldata]="hotel.passageirosQuartosSingle"
+          [columns]="columnsSingle"
+          [displayedColumns]="displayedColumnsSingle"
+          [groupByColumns]="groupByColumnsSingle"
+          tableName="Quartos Single"
+          [hotel]="hotel" 
+          [qtdQuartos]="hotel.qtdQuartosSingle"
+          (onRemovePassengerAction)="removePassenger($event, hotel, 'single')"
+          (onUpdateQtdQuartos)="hotel.qtdQuartosSingle = $event"
+          ></app-data-table-distribuicao-vagas>
+        </div>
+      </div>
+
+
+    </mat-expansion-panel>
+  </mat-accordion>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancelar</button>
+  <button mat-raised-button color="primary" (click)="salvar()">Salvar</button>
+</mat-dialog-actions>

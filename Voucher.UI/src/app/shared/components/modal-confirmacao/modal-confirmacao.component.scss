@@ -1,0 +1,28 @@
+.close-dialog {
+  position: relative;
+  .btn-fechar {
+    position: absolute;
+    right: -20px;
+    top: -20px;
+  }
+}
+
+.btn-dialog {
+  padding: 10px;
+  float: right;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.px {
+  padding-right: 5px;
+  padding-left: 5px;
+}
+
+.mt {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+

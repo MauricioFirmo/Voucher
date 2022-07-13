@@ -1,0 +1,38 @@
+<form [formGroup]="formModeloCartas" (ngSubmit)="onSubmit()">
+  <div fxLayout="row wrap" fxLayoutAlign="start start">
+    <div fxFlex="100" fxFlex.gt-sm="100" fxLayoutAlign="start">
+      <mat-form-field class="w-100 px ">
+        <mat-select placeholder="Idioma:" formControlName="language">
+          <mat-option *ngFor="let idioma of idiomas" [value]="idioma.id">{{idioma.idioma}}</mat-option>
+        </mat-select>
+        <mat-error *ngIf="f.language.errors?.required">Idioma is required</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div fxFlex="100" fxFlex.gt-sm="100" fxLayoutAlign="start">
+      <mat-form-field class="w-100 px">
+        <mat-label>Título:</mat-label>
+        <input matInput type="text" formControlName="subject">
+        <mat-error *ngIf="f.subject.errors?.required">Título is required</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div fxFlex="100" fxFlex.gt-sm="100" fxLayoutAlign="start">
+      <mat-form-field class="w-100 px ">
+        <mat-label>Texto:</mat-label>
+        <textarea matInput rows=30 formControlName="body" placeholder="Campo para inserção de template"></textarea>
+        <mat-error *ngIf="f.body.errors?.required">Texto template is required</mat-error>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div fxLayout="row" fxLayoutAlign="center center" class="mt">
+    <div fxFlex="100" fxFlex.gt-sm="50" fxLayoutAlign="center center">
+      <button mat-raised-button color="secondary" (click)="location.back(); $event.preventDefault();">Voltar</button>
+    </div>
+
+    <div fxFlex="100" fxFlex.gt-sm="50" fxLayoutAlign="center center" *ngIf="!isVisualizar">
+      <button mat-raised-button color="primary">Salvar</button>
+    </div>
+  </div>
+</form>
